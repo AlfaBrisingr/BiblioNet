@@ -1,4 +1,4 @@
-<form action="?uc=MonCompte&action=ValiderModifPrenom">
+<form action="?uc=MonCompte&action=ValiderModifPrenom" method="post">
 	<label>Ancienne Prénom : </label>
 	<input type="text" value="<?php echo $_SESSION['Prenom']; ?>" name="PrenomUser" disabled></br>
 

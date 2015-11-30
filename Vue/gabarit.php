@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-	<meta charset="iso-8859-1" />
+	<meta charset="UTF-8" />
 	<link rel="stylesheet" type="text/css" href="style/style.css">
 	<title><?= $titre ?></title>
 </head>

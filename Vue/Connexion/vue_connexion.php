@@ -1,5 +1,5 @@
 <?php
-if(SessionOuverte()==false)
+if(SessionOuverte() == false)
 {
   ?>
 

@@ -24,7 +24,7 @@ function setModifMail($NumUser, $Mail){
 
 }
 
-function setModifNom($AdresseMail, $Nom){
+function setModifNom($Nom,$AdresseMail){
 
 	$conn = BDDConnexionPDO();
 	$req=$conn->prepare("UPDATE Utilisateur SET Nom=? WHERE AdresseMail=? ");
@@ -44,7 +44,7 @@ function setModifPrenom($Prenom, $AdresseMail){
 
 }
 
-function setModifAdresse($AdresseMail, $Adresse, $CodePostal, $Ville){
+function setModifAdresse($Adresse, $CodePostal, $Ville, $AdresseMail){
 
 	$conn = BDDConnexionPDO();
 	$req=$conn->prepare("UPDATE Utilisateur SET Adresse=?, CodePostal=?, Ville=? WHERE AdresseMail=? ");

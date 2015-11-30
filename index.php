@@ -36,7 +36,7 @@ session_start(); ?>
 					case 'Inscription' :  include("Controleur/Inscription/controleur_inscription.php"); break;
 					case 'Livre' :  include("Controleur/Livre/controleur_livre.php"); break;
 					case 'Deconnexion' :  include("Controleur/Deconnexion.php"); break;
-					default : include("Vue/Accueil/vue_Accueil.php"); break;
+					default : include("Vue/Accueil/vue_accueil.php"); break;
 				}
 			}
 			else 

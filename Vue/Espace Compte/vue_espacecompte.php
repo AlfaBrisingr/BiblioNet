@@ -7,5 +7,8 @@
 </br>
 </br>
 </br><a href="?uc=MonCompte&action=modifPrenom" class="boutonEC"> Changer son Prénom </a>
+<a href="?uc=MonCompte&action=modifNom" class="boutonEC"> Changer son Nom </a>
+<a href="?uc=MonCompte&action=modifAdresse" class="boutonEC"> Changer son Adresse Postal </a>
+
 
 
