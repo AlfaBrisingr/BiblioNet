@@ -43,10 +43,6 @@
 			</ul>
 		</div>
 	</nav>
-	
-	<!--<div class="corps">
-	<?= $contenu ?>
-</div>-->
 </body>
 
 </html>	

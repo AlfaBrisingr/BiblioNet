@@ -2,7 +2,7 @@
 require_once "Modele/ConnexionBDD.php";
 require_once "Classe/Espace Compte/espacecompte.php";
 
-function getUnUser($AdresseMail){
+static public function getUnUser($AdresseMail){
 
 	$conn = BDDConnexionPDO();
 	$req=$conn->prepare("SELECT * FROM Utilisateur WHERE AdresseMail = ? "); 
@@ -14,7 +14,7 @@ function getUnUser($AdresseMail){
 	return $uneFleur;
 }
 
-function setModifMail($NumUser, $Mail){
+static public function setModifMail($NumUser, $Mail){
 
 	$conn = BDDConnexionPDO();
 	$req=$conn->prepare("UPDATE Utilisateur SET AdresseMail=? WHERE NumUser=? ");
@@ -24,7 +24,7 @@ function setModifMail($NumUser, $Mail){
 
 }
 
-function setModifNom($Nom,$AdresseMail){
+static public function setModifNom($Nom,$AdresseMail){
 
 	$conn = BDDConnexionPDO();
 	$req=$conn->prepare("UPDATE Utilisateur SET Nom=? WHERE AdresseMail=? ");
@@ -34,7 +34,7 @@ function setModifNom($Nom,$AdresseMail){
 
 }
 
-function setModifPrenom($Prenom, $AdresseMail){
+static public function setModifPrenom($Prenom, $AdresseMail){
 
 	$conn = BDDConnexionPDO();
 	$req=$conn->prepare("UPDATE Utilisateur SET Prenom=? WHERE AdresseMail=? ");
@@ -44,7 +44,7 @@ function setModifPrenom($Prenom, $AdresseMail){
 
 }
 
-function setModifAdresse($Adresse, $CodePostal, $Ville, $AdresseMail){
+static public function setModifAdresse($Adresse, $CodePostal, $Ville, $AdresseMail){
 
 	$conn = BDDConnexionPDO();
 	$req=$conn->prepare("UPDATE Utilisateur SET Adresse=?, CodePostal=?, Ville=? WHERE AdresseMail=? ");

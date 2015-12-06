@@ -2,7 +2,7 @@
 require_once "Modele/ConnexionBDD.php";
 require_once "Classe/Inscription/inscription.php";
 
-function getUnUser($AdresseMail){
+static public function getUnUser($AdresseMail){
 
 	$conn = BDDConnexionPDO();
 	$req=$conn->prepare("SELECT * FROM Utilisateur WHERE AdresseMail=?"); 
@@ -15,7 +15,7 @@ function getUnUser($AdresseMail){
 	
 }
 
-function setAjouterUser($nom,$prenom,$mdp,$mail,$adresse,$code,$ville){
+static public function setAjouterUser($nom,$prenom,$mdp,$mail,$adresse,$code,$ville){
 	try
 	{
 		$mdp = sha1($mdp);
