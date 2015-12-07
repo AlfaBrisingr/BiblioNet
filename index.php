@@ -3,6 +3,7 @@ require_once "Classe/Panier/panier.php";
 require_once "Classe/Panier/collection.php";
 require_once "Classe/Panier/produit.php";
 require_once "Modele/ConnexionBDD.php";
+require_once "Classe/Date.php";
 session_start(); ?>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
@@ -40,6 +41,7 @@ session_start(); ?>
 					case 'Inscription' :  include("Controleur/Inscription/controleur_inscription.php"); break;
 					case 'Livre' :  include("Controleur/Livre/controleur_livre.php"); break;
 					case 'Deconnexion' :  include("Controleur/Deconnexion.php"); break;
+					case 'Commentaire' : include("Controleur/Commentaire/controleur_commentaire.php"); break;
 					default : include("Vue/Accueil/vue_accueil.php"); break;
 				}
 			}

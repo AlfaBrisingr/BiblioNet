@@ -26,8 +26,9 @@ switch ($action)
   if($_SESSION['Panier']->getNbProd() == 0)
   {
     unset($_SESSION['Panier']);
+  }else{
+    header('Location:?uc=Panier');
   }
-  header('Location:?uc=Panier');
   break;
 
   case 'augmenterProduit' : 
@@ -40,7 +41,8 @@ switch ($action)
   if($_SESSION['Panier']->getNbProd() == 0)
   {
     unset($_SESSION['Panier']);
+  }else{
+    header('Location:?uc=Panier');
   }
-  header('Locationr:?uc=Panier');
   break;
 }
