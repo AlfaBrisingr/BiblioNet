@@ -24,4 +24,13 @@ class Mlivre{
 		$lesLivres = $req->fetchAll();
 		return $lesLivres;
 	}
+	function getLesLivresGenre($Genre)
+{
+	$conn = BDDConnexionPDO();
+	$req=$conn->prepare("SELECT * FROM Livre WHERE NoGenre= ? "); 
+	$req->execute(array( $Genre ));
+	$lignes=$req->fetchall();
+	$conn = null;
+	return $LesLivres;
+}
 }

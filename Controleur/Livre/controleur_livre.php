@@ -9,6 +9,7 @@ else
 switch($action){
 	case 'voirLivre':
 		$TabLivre=MLivre::getLesLivres() ;
+		//$tabcategorie= ;
 		include("Vue/Livre/vue_livre.php");
 
 	 break;
