@@ -20,7 +20,7 @@ switch ($action)
     $_SESSION['Panier'] = new Panier();
   }
 
-  $unProduit = new Produit($_GET['NumLivre']);
+  $unProduit = new Produit($_GET['ref']);
   $_SESSION['Panier']->ajouterUnProduit($unProduit);
   break;
 

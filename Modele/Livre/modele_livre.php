@@ -20,8 +20,8 @@ class Mlivre{
 	static public function getLesLivres(){
 
 		$conn = BDDConnexionPDO();
-		$req = $conn->prepare("SELECT * FROM Livre ORDER BY Nom");
-		$lesLivres = $resultats->fetchAll();
+		$req = $conn->query("SELECT * FROM Livre ORDER BY Nom");
+		$lesLivres = $req->fetchAll();
 		return $lesLivres;
 	}
 }
