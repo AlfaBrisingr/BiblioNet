@@ -3,7 +3,9 @@ require_once "Classe/Panier/panier.php";
 require_once "Classe/Panier/collection.php";
 require_once "Classe/Panier/produit.php";
 require_once "Modele/ConnexionBDD.php";
-require_once "Classe/Date.php";
+//require_once "Classe/Date.php";
+require_once "Classe/Livre/genre.php";
+require_once"Classe/Livre/livre.php";
 session_start(); ?>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">

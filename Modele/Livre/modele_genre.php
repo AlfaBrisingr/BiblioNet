@@ -15,3 +15,12 @@ class Mgenre{
 		$conn=null;
 		return $Ungenr;
 	}
+	static public function getGenrelivres(){
+		$conn = BDDConnexionPDO();
+		$req = $conn->query("SELECT * FROM Genre");
+		$lesLivres = $req->fetchAll();
+		return $lesLivres;
+	}
+
+
+}
