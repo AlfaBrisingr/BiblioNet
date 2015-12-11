@@ -24,7 +24,7 @@ class Mlivre{
 		$lesLivres = $req->fetchAll();
 		return $lesLivres;
 	}
-	function getLesLivresGenre($Genre)
+	function getLesLivresGenre($NumGenre)
 {
 	$conn = BDDConnexionPDO();
 	$req=$conn->prepare("SELECT * FROM Livre WHERE NoGenre= ? "); 
