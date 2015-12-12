@@ -7,7 +7,7 @@ if (isset($_REQUEST['action']))
 
 	$action = $_REQUEST['action'];
 else
-	$action = "voirGenre";
+	$action = "voirTousLivre";
 
 switch($action){
 	case 'voirGenre':
@@ -25,22 +25,17 @@ switch($action){
 
 	include("Vue/Livre/vue_livre.php");
 	break;
-	case 'voirLivre':
-		// Si déjà un POST de la liste déroulante
-	if (isset($_POST['Genre']))
-	{
-		$categ=$_POST['Genre'];
-	}
-	else{
-		$categ='1';
-	}
 
-			//Liste déroulante présentant les catégories 
-	$tabGenre=Mgenre::getGenrelivres() ;
-			// Rercherche des fleurs
+	case 'voiredition':
+
 	$TabLivre=MLivre::getLesLivres() ;
-			//Appel de la vue
 
-	include("Vue/Livre/vue_livre.php");
+	include("Vue/Livre/vue_edition.php");
+	break;
+
+	case 'voirauteur':
+
+	include("Vue/Livre/vue_auteur.php");
+	var_dump($tabAuteur=MAuteur::getLesAuteur());
 	break;
 }
