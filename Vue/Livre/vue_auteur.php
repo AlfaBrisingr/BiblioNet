@@ -4,16 +4,17 @@
 <br/><br/>
 
 
-<from action="<?php echo $_SERVER['PHP_SELF'];?>?uc=Livre&action=voirLivre" method"POST" >
-	<select name="Genre" >
+<form action="<?php echo $_SERVER['PHP_SELF'];?>?uc=Livre&action=voirauteur" method="POST" >
+
+	<select name="Auteur" onChange='submit(form)'>>
 		<option value='0' selected>Choisir l'auteur</option>
 		<?php 
 
 		foreach ($tabAuteur as $cat)
 		{   
-			echo "<option value='".$cat['NumAuteur']."'"; $NomGenre=$cat['NomAuteur']; echo ">".$cat['NomAuteur']."</option>";
+			echo "<option value='".$cat['NumAuteur']."'"; $NomAuteur=$cat['NomAuteur']; echo ">".$cat['NomAuteur']."</option>";
 		} ?> 
 	</select>
-	<!--<input name="valider" type="submit" value="Go" title="valider pour aller à la page sélectionnée" />-->
+	
 </form>
 <br/><br/>

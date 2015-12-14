@@ -11,9 +11,15 @@ else
 
 switch($action){
 	case 'voirGenre':
-		//liste déroulente Genre
-	$tabGenre=Mgenre::getGenrelivres() ;	
+	if (isset($_POST['Genre']))
+			     $Genre=$_POST['Genre'];
+			else
+			     $Genre='0';
 
+		//liste déroulente Genre
+	$tabGenre=Mgenre::getGenrelivres() ;
+	
+	$TabLivreGenre=MLivre::getLesLivresGenre($Genre);
 	include("Vue/Livre/vue_Genre.php");
 
 	
@@ -34,7 +40,13 @@ switch($action){
 	break;
 
 	case 'voirauteur':
+	if (isset($_POST['Auteur']))
+			     $auteur=$_POST['Auteur'];
+			else
+			     $auteur='0';
 	$tabAuteur=MAuteur::getLesAuteur();
+
+	$tabLesLivreDunAuteur=MLivre::getlivreAuteur($auteur);
 	include("Vue/Livre/vue_auteur.php");
 	
 	break;

@@ -11,5 +11,14 @@ class MAuteur{
 		return $lesAuter;
 	}
 
-
-}	
+static public function  getunAuteur($NumAuter) {
+$conn = BDDConnexionPDO();
+		$req = $conn->prepare("SELECT * FROM Livre WHERE NumAuteur = ?");
+		$Ungenre = new genre();
+		$req->setFetchMode(PDO::FETCH_INTO, $NumAuteur);
+		$req->execute(array($NumAuteur));
+		$req->fetch(PDO::FETCH_INTO);
+		$conn=null;
+		return $leslivredelauteur; 
+}
+}
