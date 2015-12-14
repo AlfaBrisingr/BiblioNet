@@ -20,37 +20,10 @@ return $connexion;
 function SessionOuverte()
 {
  // Vérifie si une session a été ouverte par l'utilisateur
-	if(isset($_SESSION["login"]))
+	if(isset($_SESSION["mail"]))
 		return true;
 	else
 		return false;
 }
 
-function EtreUtilisateur()
-{
- // Vérifie si c'est une famille qui est connectée
-	if (isset($_SESSION["login"]))
-	{
-		if ($_SESSION["groupe"]=="Utilisateur")
-			return true;
-		else
-			return false;
-	}
-	else
-		return false;
-}
-
-function EtreAdministrateur()
-{
- // Vérifie si c'est un enseignant qui est connecté
-	if (SessionOuverte())
-	{
-		if ($_SESSION["groupe"]=="Administrateur")
-			return true;
-		else
-			return false;
-	}
-	else
-		return false;
-}
 ?>

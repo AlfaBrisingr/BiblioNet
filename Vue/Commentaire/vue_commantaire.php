@@ -1,6 +1,10 @@
-<div class="SousCom">
-	<p><?php echo 'Livre : '. $Livre->getNom() ?></p>
-</div>
+<?php
+if(SessionOuverte() == true)
+{ 
+	?>
+	<div class="SousCom">
+		<p><?php echo 'Livre : '. $Livre->getNom() ?></p>
+	</div>
 
 </br><a href="?uc=Commentaire&action=ajouterCommentaire" class="boutonEC"> Ajouter un Commentaire </a>
 </br></br>
@@ -16,5 +20,10 @@ foreach ($TabCom as $Commentaire)
 			<?php echo $Commentaire['Com'];?> 
 		</div>
 	</br>
+	<?php
+}
+}else{ 
+	?>
+	Vous devez être connecté pour avoir accès à cette page.
 	<?php
 }

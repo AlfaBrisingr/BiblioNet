@@ -10,6 +10,7 @@ switch($action){
 	case 'voirCommentaire' : 
 	$Livre = Mlivre::getUnLivre($_GET['ref']);
 	$TabCom = MCommentaire::getLesCommentaires($_GET['ref']);
+	$_SESSION['NoLivre'] = $Livre->getNumLivre();
 	include ('Vue/Commentaire/vue_commantaire.php');
 	break;
 
@@ -21,12 +22,12 @@ switch($action){
 	if(isset($_POST['Contenu'])){
 		$Com = array(
 			'NoUser' =>$_SESSION['user'],
-			'NoLivre' => '1',
+			'NoLivre' => $_SESSION['NoLivre'],
 			'Com' => $_POST['Contenu'],
 			'DateCom' => date('Y-m-d'));
 
 		$Commentaire = MCommentaire::ajouterCommentaire($Com['NoUser'],$Com['NoLivre'],$Com['Com'],$Com['DateCom']);
-		include ('?uc=Accueil.php');
+		include ('Vue/Accueil/vue_accueil.php');
 	}
 	break;
 }

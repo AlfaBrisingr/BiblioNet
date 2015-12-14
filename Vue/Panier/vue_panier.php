@@ -2,27 +2,39 @@
 if(isset($_SESSION['Panier'])){
 
 	$total = 0;
-	echo "Votre panier <br/>";
-	echo "<TABLE border=1>";
-	echo "<TR> <TD> Référence </TD>";
-	echo "<TD> Désignation </TD>";
-	echo "<TD> Prix </TD>";
-	echo "<TD> Quantite </TD>";
-	echo "<TD> Montant </TD>";
-	echo "<TD> Actions </TD> </TR>";
+	?>
+	<p align="center">Votre panier</p> <br/>
+	<div class="Tableau">
+		<table>
+			<TR> 
+				<TD> Référence </TD>
+				<TD> Désignation </TD>
+				<TD> Prix </TD>
+				<TD> Quantite </TD>
+				<TD> Montant </TD>
+				<TD> Actions </TD> 
+			</TR>
+			<?php
+			$coll = $_SESSION['Panier']->getProduitsPanier();	
+			foreach ($coll as $key => $value) { ?>
 
-	$coll = $_SESSION['Panier']->getProduitsPanier();	
-	foreach ($coll as $key => $value) { ?>
-	<TR> 
-		<TD><?php echo $value -> getRef(); ?></TD>
-		<TD><?php echo $value -> getLib(); ?></TD>
-		<TD><?php echo $value -> getPrix(); ?></TD>
-		<TD><a href='index.php?uc=Panier&action=diminuerProduit&ref=<?= $value->getRef(); ?>'><img src='img/Panier/EnleverMoins.png'/></a>  <?php echo $value -> getQte(); ?>  <a href='index.php?uc=Panier&action=augmenterProduit&ref=<?= $value->getRef(); ?>'><img src='img/Panier/AjouterPlus.png'/></a></TD>
-		<TD><?php echo $value -> getPrix()*$value ->getQte(); ?></TD>
-		<TD><a href='index.php?uc=Panier&action=supprimerProduit&ref=<?= $value->getRef(); ?>'><img src='img/Divers/poubelle.png'/></a><br/></TD>
-	</TR> 
-	<?php
-} 
+			<TR> 
+				<TD><?php echo $value -> getRef(); ?></TD>
+				<TD><?php echo $value -> getLib(); ?></TD>
+				<TD><?php echo $value -> getPrix()." euros"; ?></TD>
+				<TD><a href='index.php?uc=Panier&action=diminuerProduit&ref=<?= $value->getRef(); ?>'><img src='img/Panier/EnleverMoins.png'/></a>  <?php echo $value -> getQte(); ?>  <a href='index.php?uc=Panier&action=augmenterProduit&ref=<?= $value->getRef(); ?>'><img src='img/Panier/AjouterPlus.png'/></a></TD>
+				<TD><?php echo $value -> getPrix()*$value ->getQte()." euros"; ?></TD>
+				<TD><a href='index.php?uc=Panier&action=supprimerProduit&ref=<?= $value->getRef(); ?>'><img src='img/Divers/poubelle.png'/></a><br/></TD>
+				<?php $total = $total + $value -> getPrix()*$value ->getQte(); ?>
+			</TR>
+			<?php
+		} ?>
+	</table>
+</div> </br>
+
+<?php echo "Total du prix à payer : ".$total. " euros"; ?></br></br>
+<a href="?uc=Panier&action=validerCommande" class="boutonEC"> Valider la Commande </a>
+<?php
 }else{
 
 	echo "Votre panier est vide";
