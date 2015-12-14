@@ -15,9 +15,9 @@ switch($action){
 
 	case 'ValiderModifPrenom' : 
 	if(isset($_POST['NewPrenom'])){
-		$utilisateur = getUnUser($_SESSION['mail']);
+		$utilisateur = MCompte::getUnUser($_SESSION['mail']);
 		$User = array ( 'Prenom' => $_POST['NewPrenom'], 'mail' => $_SESSION['mail']);
-		setModifPrenom($User['Prenom'],$User['mail']);
+		MCompte::setModifPrenom($User['Prenom'],$User['mail']);
 		$_SESSION['Prenom'] = $_POST['NewPrenom'];
 		header("Location:?uc=MonCompte");
 	}
@@ -28,9 +28,9 @@ switch($action){
 
 	case 'ValiderModifNom' : 
 	if(isset($_POST['NewNom'])){
-		$utilisateur = getUnUser($_SESSION['mail']);
+		$utilisateur = MCompte::getUnUser($_SESSION['mail']);
 		$User = array ( 'Nom' => $_POST['NewNom'], 'mail' => $_SESSION['mail']);
-		setModifNom($User['Nom'],$User['mail']);
+		MCompte::setModifNom($User['Nom'],$User['mail']);
 		$_SESSION['Nom'] = $_POST['NewNom'];
 		header("Location:?uc=MonCompte");
 	}
@@ -41,9 +41,9 @@ switch($action){
 
 	case 'ValiderModifAdresse' : 
 	if(isset($_POST['NewAdresse'])&&isset($_POST['NewCode'])&&isset($_POST['NewVille'])){
-		$utilisateur = getUnUser($_SESSION['mail']);
+		$utilisateur = MCompte::getUnUser($_SESSION['mail']);
 		$User = array ( 'Adresse' => $_POST['NewAdresse'], 'CodePostal' => $_POST['NewCode'], 'Ville' => $_POST['NewVille'], 'mail' => $_SESSION['mail']);
-		setModifAdresse($User['Adresse'],$User['CodePostal'],$User['Ville'],$User['mail']);
+		MCompte::setModifAdresse($User['Adresse'],$User['CodePostal'],$User['Ville'],$User['mail']);
 		$_SESSION['Adresse'] = $_POST['NewAdresse'];
 		$_SESSION['CodePostal'] = $_POST['NewCode'];
 		$_SESSION['Ville'] = $_POST['NewVille'];

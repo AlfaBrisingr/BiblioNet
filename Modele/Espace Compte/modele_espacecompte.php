@@ -12,7 +12,7 @@ class MCompte{
 		$req->execute(array( $AdresseMail ));
 		$req->fetch(PDO::FETCH_INTO);
 		$conn = null;
-		return $unnUser;
+		return $unUser;
 	}
 
 	static public function setModifMail($NumUser, $Mail){

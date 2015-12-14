@@ -2,7 +2,7 @@
 // Connexion à la base de données
 function BDDConnexionPDO()
 {
-	$PARAM_hote='btsinfo-rousseau53.fr:33017'; 	
+	$PARAM_hote='localhost'; 	
 	$PARAM_nom_bd='2014-biblionet_base'; 	$PARAM_utilisateur='2014-biblionet'; 
 	$PARAM_mot_passe='123456'; 
 	try

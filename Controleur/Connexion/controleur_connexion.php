@@ -14,7 +14,7 @@ switch($action){
 
 	if(isset($_POST['mail']))
 	{
-		$utilisateur = getUnUser($_POST['mail']);
+		$utilisateur = MConnexion::getUnUser($_POST['mail']);
 		if($_POST['mail'] == $utilisateur['AdresseMail'] && sha1($_POST['mdp']) == $utilisateur['Password'])
 		{
 

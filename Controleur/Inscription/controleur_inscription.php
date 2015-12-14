@@ -14,7 +14,7 @@ switch($action){
 	if (isset($_POST['nom']) && isset($_POST['prenom']) && isset($_POST['mail']) && isset($_POST['adresse']) && isset($_POST['code']) && isset($_POST['ville']))
 	{
 		$_SESSION['error'] = "";
-		$utilisateur = getUnUser($_POST['mail']);
+		$utilisateur = MInscription::getUnUser($_POST['mail']);
 		if($_POST['mail'] == $utilisateur['AdresseMail'])
 		{
 			$_SESSION['error'] .= 'Cette e-mail est déjà utilisée.';
@@ -49,7 +49,7 @@ switch($action){
 				'ville' => $_POST['ville']);
 
 
-			setAjouterUser($User['nom'],$User['prenom'],$User['mdp'],$User['mail'],$User['adresse'],$User['code'],$User['ville']);
+			MInscription::setAjouterUser($User['nom'],$User['prenom'],$User['mdp'],$User['mail'],$User['adresse'],$User['code'],$User['ville']);
 			$_SESSION['valid'] = "Inscription réussie, vous pouvez désormais vous connecter.";
 			header("Location:?uc=index");
 		}
