@@ -19,8 +19,7 @@
 </form>
 <br/><br/>
 <?php
-echo $cat['NomGenre'];
-echo $cat['NumGenre'];
+
 
 //onChange='submit(form)'
 

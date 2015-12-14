@@ -11,7 +11,7 @@
 
 		foreach ($tabAuteur as $cat)
 		{   
-			echo "<option value='".$cat['NumGenre']."'"; $NomGenre=$cat['NomGenre']; echo ">".$cat['NomGenre']."</option>";
+			echo "<option value='".$cat['NumAuteur']."'"; $NomGenre=$cat['NomAuteur']; echo ">".$cat['NomAuteur']."</option>";
 		} ?> 
 	</select>
 	<!--<input name="valider" type="submit" value="Go" title="valider pour aller à la page sélectionnée" />-->

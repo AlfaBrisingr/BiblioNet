@@ -34,8 +34,8 @@ switch($action){
 	break;
 
 	case 'voirauteur':
-
+	$tabAuteur=MAuteur::getLesAuteur();
 	include("Vue/Livre/vue_auteur.php");
-	var_dump($tabAuteur=MAuteur::getLesAuteur());
+	
 	break;
 }

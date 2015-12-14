@@ -6,7 +6,7 @@ class MAuteur{
 	static public function  getLesAuteur() {
 
 		$conn = BDDConnexionPDO();
-		$req = $conn->query("SELECT * FROM Auteur  ORDER BY Auteur");
+		$req = $conn->query("SELECT * FROM Auteur  ORDER BY NomAuteur");
 		$lesAuter = $req->fetchAll();
 		return $lesAuter;
 	}
