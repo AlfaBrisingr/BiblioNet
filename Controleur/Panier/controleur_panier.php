@@ -1,5 +1,7 @@
 <?php
 require_once "Modele/Livre/modele_livre.php";
+require_once "Modele/Panier/modele_panier.php";
+
 if (isset($_REQUEST['action']))
   $action = $_REQUEST['action'];
 else
@@ -44,5 +46,22 @@ switch ($action)
   }else{
     header('Location:?uc=Panier');
   }
+  break;
+
+  case 'validerCommande' : 
+  $UneCommande = array(
+    'NoUsers' => $_SESSION['user'],
+    'DateCommande' => date('Y-m-d'));
+  MPanier::AjouterCommande($UneCommande['NoUsers'],$UneCommande['DateCommande']);
+
+  $UnProduit = array(
+    'NoLivres' =>Produit::$_SESSION['Panier']->$getRef(),
+    'NoCommande' => Max(Commande::GetNumCommande()) ,
+    'Quantite' => Produit::$_SESSION['Panier']->getQte());
+  foreach ($coll as $key => $value) {
+    MPanier::AjouterCommandeProduit($UnProduit['NoLivres'],$UnProduit['NoCommande'],$UnProduit['Quantite']);
+  }
+  Panier::videPanier();
+  header('Location:?uc=Livre');
   break;
 }

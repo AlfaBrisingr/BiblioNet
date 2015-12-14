@@ -19,10 +19,10 @@ if(isset($_SESSION['Panier'])){
 			foreach ($coll as $key => $value) { ?>
 
 			<TR> 
-				<TD><?php echo $value -> getRef(); ?></TD>
+				<TD headers="NumLivre"><?php echo $value -> getRef(); ?></TD>
 				<TD><?php echo $value -> getLib(); ?></TD>
 				<TD><?php echo $value -> getPrix()." euros"; ?></TD>
-				<TD><a href='index.php?uc=Panier&action=diminuerProduit&ref=<?= $value->getRef(); ?>'><img src='img/Panier/EnleverMoins.png'/></a>  <?php echo $value -> getQte(); ?>  <a href='index.php?uc=Panier&action=augmenterProduit&ref=<?= $value->getRef(); ?>'><img src='img/Panier/AjouterPlus.png'/></a></TD>
+				<TD headers="quantite"><a href='index.php?uc=Panier&action=diminuerProduit&ref=<?= $value->getRef(); ?>'><img src='img/Panier/EnleverMoins.png'/></a>  <?php echo $value -> getQte(); ?>  <a href='index.php?uc=Panier&action=augmenterProduit&ref=<?= $value->getRef(); ?>'><img src='img/Panier/AjouterPlus.png'/></a></TD>
 				<TD><?php echo $value -> getPrix()*$value ->getQte()." euros"; ?></TD>
 				<TD><a href='index.php?uc=Panier&action=supprimerProduit&ref=<?= $value->getRef(); ?>'><img src='img/Divers/poubelle.png'/></a><br/></TD>
 				<?php $total = $total + $value -> getPrix()*$value ->getQte(); ?>
