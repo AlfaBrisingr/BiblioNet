@@ -8,8 +8,25 @@ else
 switch($action){
 
 	case 'voirCommentaire' : 
+	$Livre = Mlivre::getUnLivre($_GET['ref']);
 	$TabCom = MCommentaire::getLesCommentaires($_GET['ref']);
 	include ('Vue/Commentaire/vue_commantaire.php');
 	break;
 
+	case 'ajouterCommentaire' : 
+	include ('Vue/Commentaire/vue_ajouterCom.php');
+	break;
+
+	case "ValiderCommentaire" : 
+	if(isset($_POST['Contenu'])){
+		$Com = array(
+			'NoUser' =>$_SESSION['user'],
+			'NoLivre' => '1',
+			'Com' => $_POST['Contenu'],
+			'DateCom' => date('Y-m-d'));
+
+		$Commentaire = MCommentaire::ajouterCommentaire($Com['NoUser'],$Com['NoLivre'],$Com['Com'],$Com['DateCom']);
+		include ('?uc=Accueil.php');
+	}
+	break;
 }

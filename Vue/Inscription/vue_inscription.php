@@ -1,10 +1,10 @@
 </br>
-<font color="#333333" size="+4" face="broadway"> <div align="center" > Formulaire d'inscription ! </div></font>
+<div align="center" > Formulaire d'inscription ! </div></font>
 <?php if(isset($_SESSION['error'])) { echo $_SESSION['error']; } ?>
 <form method="post" action="?uc=Inscription&action=Inscription" >
-	<p align="center"><font face="Lucida Console, Monaco, monospace"  >
-		<table>
-			<tr>
+  <p align="center">
+    <table>
+      <tr>
         <td><b>Nom:</b><font color="#FF0000">*</font> </td>
         <td><input type="text" placeholder="nom" name="nom"   size="20" required /></td>
       </tr>

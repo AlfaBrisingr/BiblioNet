@@ -11,6 +11,12 @@ class MCommentaire{
 		$LesComs = $req->fetchAll();
 		return $LesComs;
 	}
+
+	static public function ajouterCommentaire($NoUser, $NoLivre, $Com, $DateCom){
+		$conn = BDDConnexionPDO();
+		$req=$conn->prepare("INSERT INTO Commentaire (NoUser, NoLivre, Com, DateCom) VALUES (?,?,?,?)");
+		$req->execute(array($NoUser, $NoLivre, $Com, $DateCom));
+		$conn = null;
+		return true;
+	}
 }
-
-
