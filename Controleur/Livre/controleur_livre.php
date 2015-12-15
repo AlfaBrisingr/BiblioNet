@@ -1,8 +1,6 @@
 <?php
 require_once('Modele/Livre/modele_livre.php');
 require_once('Modele/Livre/modele_genre.php');
-
-
 if (isset($_REQUEST['action']))
 
 	$action = $_REQUEST['action'];
@@ -34,8 +32,14 @@ switch($action){
 
 	case 'voiredition':
 
-	$TabLivre=MLivre::getLesLivres() ;
+	if (isset($_POST['Auteur']))
+			     $auteur=$_POST['Auteur'];
+			else
+			     $auteur='0';
 
+	$tabEdition=MAuteur::getLesAuteur();
+
+	$tabLesLivreDunAuteur=MLivre::getlivreAuteur($auteur);
 	include("Vue/Livre/vue_edition.php");
 	break;
 
