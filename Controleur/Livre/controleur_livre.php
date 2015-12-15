@@ -44,6 +44,7 @@ switch($action){
 			     $auteur=$_POST['Auteur'];
 			else
 			     $auteur='0';
+
 	$tabAuteur=MAuteur::getLesAuteur();
 
 	$tabLesLivreDunAuteur=MLivre::getlivreAuteur($auteur);

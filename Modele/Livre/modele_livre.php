@@ -34,7 +34,7 @@ class Mlivre{
 	}	
 	static public function getlivreAuteur($auteur){
 		$conn = BDDConnexionPDO();
-		$req=$conn->prepare("SELECT * FROM Livre WHERE NumAuteur= ? "); 
+		$req=$conn->prepare("SELECT * FROM Livre INNER JOIN Genre ON Livre.NoGenre = Genre.NumGenre WHERE NumAuteur= ? "); 
 		$req->execute(array($auteur));
 		$deslivres = $req->fetchAll();
 		return $deslivres;
