@@ -3,7 +3,7 @@ require_once "Modele/Livre/modele_auteur.php";
 
 class auteur
 {
-	private $NumAuteur;	   
+	private $NumAuteur;
 	private $NomAuteur;
 
 	public function __construct (){

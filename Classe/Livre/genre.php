@@ -3,7 +3,7 @@ require_once "Modele/Livre/modele_genre.php";
 
 class genre
 {
-     private $NumGenre;	   
+     private $NumGenre;
 	 private $NomGenre;
 
 public function __construct (){

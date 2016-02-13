@@ -3,13 +3,13 @@ require_once "Modele/Livre/modele_edition.php";
 
 class edition
 {
-     private $NumEdition;	   
+     private $NumEdition;
 	 private $NomEdition;
 
 public function __construct (){
 
 	}
-	public function getNumEdition()){
+	public function getNumEdition(){
 
 		return ($this->NumEdition);
 	}

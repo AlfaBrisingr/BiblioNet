@@ -2,16 +2,16 @@
 <a href="?uc=Livre&action=voirauteur" class="boutonEC"> Recherche par auteur </a>
 <a href="?uc=Livre&action=voirTousLivre" class="boutonEC"> Voir tous les livre</a>
 </br></br>
-<form action="<?php echo $_SERVER['PHP_SELF'];?>?uc=Livre&action=voirGenre" method="POST" >
+<form action="<?php echo $_SERVER['PHP_SELF'];?>?uc=Livre&action=voirEdition" method="POST" >
 
 	<select name="Edition" onChange='submit(form)'>>
 		<option value='0' selected>Choisir l'édition </option>
-		<?php 
+		<?php
 
 		foreach ($tabEdition as $cat)
-		{   
+		{
 			echo "<option value='".$cat['NumEdition']."'"; $NomEdition=$cat['NomEdition'];  echo ">".$cat['NomEdition']."</a></option>";
-		} ?> 
+		} ?>
 	</select>
 </form>
 
@@ -21,17 +21,17 @@
 <div class="Tableau">
 
 	<table>
-		<TR> 
+		<TR>
 			<TD> Nom </TD>
 			<TD> CodeISBN </TD>
 			<TD> Genre </TD>
 			<TD> Date de Sortie </TD>
 			<TD> Prix </TD>
-			<TD> Ajouter Panier </TD> 
+			<TD> Ajouter Panier </TD>
 			<td> Ajouter Commentaire </td>
 		</TR>
-		<?php 
-		foreach ($TabLivreGenre as $Livre)
+		<?php
+		foreach ($tabLesLivreDuneEdition as $Livre)
 		{
 			?>
 
@@ -49,5 +49,3 @@
 		} ?>
 	</table>
 </div>
-
-

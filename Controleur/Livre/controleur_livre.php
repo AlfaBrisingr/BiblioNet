@@ -1,6 +1,7 @@
 <?php
 require_once('Modele/Livre/modele_livre.php');
 require_once('Modele/Livre/modele_genre.php');
+require_once('Modele/Livre/modele_edition.php');
 if (isset($_REQUEST['action']))
 
 	$action = $_REQUEST['action'];
@@ -16,30 +17,31 @@ switch($action){
 
 		//liste déroulente Genre
 	$tabGenre=Mgenre::getGenrelivres() ;
-	
+
 	$TabLivreGenre=MLivre::getLesLivresGenre($Genre);
 	include("Vue/Livre/vue_Genre.php");
 
-	
+
 	break;
 
 	case 'voirTousLivre':
-		// afichague de tou les livre 
+		// afichague de tou les livre
 	$TabLivre=MLivre::getLesLivres() ;
 
 	include("Vue/Livre/vue_livre.php");
 	break;
 
-	case 'voiredition':
+	case 'voirEdition':
 
-	if (isset($_POST['Auteur']))
-			     $auteur=$_POST['Auteur'];
+	if (isset($_POST['Edition']))
+
+			     $edition=$_POST['Edition'];
 			else
-			     $auteur='0';
+			     $edition='0';
 
-	$tabEdition=MAuteur::getLesAuteur();
+	$tabEdition=Medition::getLesEdition();
 
-	$tabLesLivreDunAuteur=MLivre::getlivreAuteur($auteur);
+	$tabLesLivreDuneEdition=MLivre::getlivreEdition($edition);
 	include("Vue/Livre/vue_edition.php");
 	break;
 
@@ -53,6 +55,6 @@ switch($action){
 
 	$tabLesLivreDunAuteur=MLivre::getlivreAuteur($auteur);
 	include("Vue/Livre/vue_auteur.php");
-	
+
 	break;
 }
