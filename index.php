@@ -1,4 +1,4 @@
-<?php  
+<?php
 require_once "Classe/Panier/panier.php";
 require_once "Classe/Panier/collection.php";
 require_once "Classe/Panier/produit.php";
@@ -14,25 +14,55 @@ session_start(); ?>
 <head>
 	<title>BiblioNet</title>
 	<meta http-equiv="Content-Type" content="text/html"; charset="UTF-8" />
-	<link rel="stylesheet" media="screen" type="text/css" title="Exemple" href="style/style.css" />
+	<link href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css' rel='stylesheet'>
 </head>
 
-<body> 
+<body>
 
-	<body>   
 
-		<!-- L'en-tête -->
-		<div id="en_tete">
-
-		</div>
-
+	<body>
 		<!-- Le menu -->
-		<div >        
-			<?php include("Vue/gabarit.php"); ?> 
-		</div> 
+		<nav class="navbar navbar-default" role="navigation">
+			<!-- Brand and toggle get grouped for better mobile display -->
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="?uc=Accueil">BiblioNet</a>
+			</div>
 
-		<!-- Le corps -->
-		<div class="corps">
+			<!-- Collect the nav links, forms, and other content for toggling -->
+			<div class="collapse navbar-collapse navbar-ex1-collapse">
+				<ul class="nav navbar-nav">
+					<li class="active"><a href="?uc=Accueil">Accueil</a></li>
+					<li><a href="?uc=Livre">Livre</a></li>
+					<li><a href="?uc=Panier">Panier</a></li>
+
+				</ul>
+				<?php
+				if(isset($_SESSION['mail'])){
+					?>
+					<ul class="nav navbar-nav navbar-right">
+						<li><a href="?uc=MonCompte">Mon Compte</a></li>
+						<li><a href="?uc=Deconnexion">Déconnexion</a></li>
+					</ul>
+					<?php
+				}else{
+					?>
+					<ul class="nav navbar-nav navbar-right">
+						<li><a href="?uc=Connexion">Connexion</a></li>
+						<li><a href="?uc=Inscription">Inscription</a></li>
+					</ul>
+					<?php
+				}
+				?>
+			</div><!-- /.navbar-collapse -->
+		</nav>
+		<div class="container-fluid">
+			<!-- Le corps -->
 			<?php if (isset($_GET['uc']))
 			{
 				switch ($_GET['uc'])
@@ -48,17 +78,16 @@ session_start(); ?>
 					default : include("Vue/Accueil/vue_accueil.php"); break;
 				}
 			}
-			else 
+			else
 			{
-				header('Location: index.php?uc=accueil');   
+				header('Location: index.php?uc=accueil');
 			}
 
 			?>
 		</div>
-
 	</body>
 
 	<!--<footer id="pied_de_page">
-		<p> Copyright by BiblioNet, tous droits réservés </p>
-	</footer>-->
-	</html>
+        <p> Copyright by BiblioNet, tous droits réservés </p>
+    </footer>-->
+</html>
