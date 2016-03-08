@@ -1,4 +1,6 @@
 <?php
+namespace BiblioNet\Classe;
+
 class Date
 {
 	static public function formaterDate($dateCom)

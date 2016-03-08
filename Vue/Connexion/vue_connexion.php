@@ -1,5 +1,7 @@
+<?php use BiblioNet\Modele\Main; ?>
+
 <?php
-if(SessionOuverte() == false)
+if(Main::SessionOuverte() == false)
 {
     ?>
     <form method="post" action="?uc=Connexion&action=Connexion">

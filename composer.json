@@ -1,0 +1,20 @@
+{
+	"name": "alfabrisingr/biblionet",
+	"authors": [
+	{
+		"name": "alfabrisingr",
+		"email": "email@hote.com"
+	}
+	],
+	"require": {
+		"spipu/html2pdf": "4.5.*"
+		},
+
+		"autoload":{
+
+			"psr-4": {
+				"BiblioNet\\": ""
+
+			}
+		}
+	}

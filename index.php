@@ -1,12 +1,14 @@
 <?php
-require_once "Classe/Panier/panier.php";
-require_once "Classe/Panier/collection.php";
-require_once "Classe/Panier/produit.php";
-require_once "Modele/ConnexionBDD.php";
-require_once "Classe/Date.php";
-require_once "Classe/Livre/genre.php";
-require_once"Classe/Livre/livre.php";
-require_once"Classe/Livre/auteur.php";
+namespace BiblioNet;
+
+define('DS', DIRECTORY_SEPARATOR);
+define('ROOT', __DIR__.DS);
+
+require_once ROOT.'vendor/autoload.php';
+
+use BiblioNet\Modele\Main;
+use BiblioNet\Classe\Date;
+
 session_start(); ?>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
@@ -74,13 +76,13 @@ session_start(); ?>
 		switch ($_GET['uc'])
 		{
 			case 'Accueil' : include("Vue/Accueil/vue_accueil.php"); break;
-			case 'Panier' : include("Controleur/Panier/controleur_panier.php"); break;
-			case 'MonCompte' : include("Controleur/Espace Compte/controleur_espacecompte.php"); break;
-			case 'Connexion' : include("Controleur/Connexion/controleur_connexion.php"); break;
-			case 'Inscription' :  include("Controleur/Inscription/controleur_inscription.php"); break;
-			case 'Livre' :  include("Controleur/Livre/controleur_livre.php"); break;
+			case 'Panier' : include("Controleur/c_panier.php"); break;
+			case 'MonCompte' : include("Controleur/c_espacecompte.php"); break;
+			case 'Connexion' : include("Controleur/c_connexion.php"); break;
+			case 'Inscription' :  include("Controleur/c_inscription.php"); break;
+			case 'Livre' :  include("Controleur/c_livre.php"); break;
 			case 'Deconnexion' :  include("Controleur/Deconnexion.php"); break;
-			case 'Commentaire' : include("Controleur/Commentaire/controleur_commentaire.php"); break;
+			case 'Commentaire' : include("Controleur/c_commentaire.php"); break;
 			default : include("Vue/Accueil/vue_accueil.php"); break;
 		}
 	}

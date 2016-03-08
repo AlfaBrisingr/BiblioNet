@@ -1,5 +1,10 @@
 <?php
-if(SessionOuverte() == true)
+use BiblioNet\Modele\Main;
+use BiblioNet\Classe\Date;
+
+?>
+<?php
+if(Main::SessionOuverte() == true)
 { 
 	?>
 	<div class="SousCom">

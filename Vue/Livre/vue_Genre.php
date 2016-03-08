@@ -1,3 +1,5 @@
+<?php use BiblioNet\Classe\Date; ?>
+
 <p align="center">
 	<a href="?uc=Livre&action=voirauteur" class="btn btn-primary"> Recherche par auteur </a>
 	<a href="?uc=Livre&action=voirEdition" class="btn btn-primary"> Recherche par edition</a>

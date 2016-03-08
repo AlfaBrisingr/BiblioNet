@@ -1,5 +1,6 @@
+<?php use BiblioNet\Modele\Main; ?>
 <?php
-if(SessionOuverte() == true)
+if(Main::SessionOuverte() == true)
 { 
 	?>
 	<div class="SousCom">
