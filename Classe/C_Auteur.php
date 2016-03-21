@@ -1,7 +1,7 @@
 <?php
 namespace BiblioNet\Classe;
 
-class auteur
+class Auteur
 {
 	private $NumAuteur;
 	private $NomAuteur;

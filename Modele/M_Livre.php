@@ -3,7 +3,7 @@ namespace BiblioNet\Modele;
 
 use BiblioNet\Classe\Livre;
 
-class Mlivre{
+class MLivre{
 
 	static public function getUnLivre($NumLivre){
 

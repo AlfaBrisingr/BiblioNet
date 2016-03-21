@@ -88,7 +88,7 @@ session_start(); ?>
 	}
 	else
 	{
-		header('Location: index.php?uc=accueil');
+		header('Location:?uc=accueil');
 	}
 
 	?>

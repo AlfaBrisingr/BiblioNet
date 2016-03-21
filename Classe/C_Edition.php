@@ -1,7 +1,7 @@
 <?php
 namespace BiblioNet\Classe;
 
-class edition
+class Edition
 {
      private $NumEdition;
 	 private $NomEdition;

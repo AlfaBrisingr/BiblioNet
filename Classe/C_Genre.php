@@ -1,7 +1,7 @@
 <?php
 namespace BiblioNet\Classe;
 
-class genre
+class Genre
 {
      private $NumGenre;
 	 private $NomGenre;

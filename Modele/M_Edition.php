@@ -3,7 +3,7 @@ namespace BiblioNet\Modele;
 
 use BiblioNet\Classe\genre;
 
-class Medition{
+class MEdition{
 
 
 	static public function getLesEdition(){

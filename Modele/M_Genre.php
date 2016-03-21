@@ -3,7 +3,7 @@ namespace BiblioNet\Modele;
 
 use BiblioNet\Classe\genre;
 
-class Mgenre{
+class MGenre{
 
 	static public function getUngenre($Numgenre){
 
