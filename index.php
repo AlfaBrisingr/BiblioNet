@@ -69,29 +69,31 @@ session_start(); ?>
 		</div><!-- /.navbar-collapse -->
 	</div>
 </div>
-<div class="container">
-	<!-- Le corps -->
-	<?php if (isset($_GET['uc']))
-	{
-		switch ($_GET['uc'])
+<div class='container'>
+	<div class='jumbotron'>
+		<!-- Le corps -->
+		<?php if (isset($_GET['uc']))
 		{
-			case 'Accueil' : include("Vue/Accueil/vue_accueil.php"); break;
-			case 'Panier' : include("Controleur/c_panier.php"); break;
-			case 'MonCompte' : include("Controleur/c_espacecompte.php"); break;
-			case 'Connexion' : include("Controleur/c_connexion.php"); break;
-			case 'Inscription' :  include("Controleur/c_inscription.php"); break;
-			case 'Livre' :  include("Controleur/c_livre.php"); break;
-			case 'Deconnexion' :  include("Controleur/Deconnexion.php"); break;
-			case 'Commentaire' : include("Controleur/c_commentaire.php"); break;
-			default : include("Vue/Accueil/vue_accueil.php"); break;
+			switch ($_GET['uc'])
+			{
+				case 'Accueil' : include("Vue/Accueil/vue_accueil.php"); break;
+				case 'Panier' : include("Controleur/c_panier.php"); break;
+				case 'MonCompte' : include("Controleur/c_espacecompte.php"); break;
+				case 'Connexion' : include("Controleur/c_connexion.php"); break;
+				case 'Inscription' :  include("Controleur/c_inscription.php"); break;
+				case 'Livre' :  include("Controleur/c_livre.php"); break;
+				case 'Deconnexion' :  include("Controleur/Deconnexion.php"); break;
+				case 'Commentaire' : include("Controleur/c_commentaire.php"); break;
+				default : include("Vue/Accueil/vue_accueil.php"); break;
+			}
 		}
-	}
-	else
-	{
-		header('Location:?uc=accueil');
-	}
+		else
+		{
+			header('Location:?uc=accueil');
+		}
 
-	?>
+		?>
+	</div>
 </div>
 
 

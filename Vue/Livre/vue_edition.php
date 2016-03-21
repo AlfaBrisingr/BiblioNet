@@ -1,11 +1,11 @@
 <?php use BiblioNet\Classe\Date; ?>
 
 <p align="center">
-	</br><a href="?uc=Livre&action=voirGenre" class="btn btn-primary"> Recherche par Genre </a>
+	<a href="?uc=Livre&action=voirGenre" class="btn btn-primary"> Recherche par Genre </a>
 	<a href="?uc=Livre&action=voirauteur" class="btn btn-primary"> Recherche par auteur </a>
 	<a href="?uc=Livre&action=voirTousLivre" class="btn btn-default"> Voir tous les livres</a>
 </p>
-</br></br>
+<br/><br/>
 
 <div class="row">
 	<form action="<?php echo $_SERVER['PHP_SELF'];?>?uc=Livre&action=voirEdition" method="POST" >

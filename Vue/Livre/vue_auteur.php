@@ -1,7 +1,7 @@
 <?php use BiblioNet\Classe\Date; ?>
 
 <p align="center">
-	</br><a href="?uc=Livre&action=voirGenre" class="btn btn-primary"> Recherche par Genre </a>
+	<a href="?uc=Livre&action=voirGenre" class="btn btn-primary"> Recherche par Genre </a>
 	<a href="?uc=Livre&action=voirEdition" class="btn btn-primary"> Recherche par edition</a>
 	<a href="?uc=Livre&action=voirTousLivre" class="btn btn-default"> Voir tous les livres</a>
 </p>
