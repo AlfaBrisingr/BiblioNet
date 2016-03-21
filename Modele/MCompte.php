@@ -9,9 +9,9 @@ class MCompte{
 		$conn = Main::BDDConnexionPDO();
 		$req=$conn->prepare("SELECT * FROM Utilisateur WHERE AdresseMail = ? "); 
 		$unUser = new Utilisateur();
-		$req->setFetchMode(PDO::FETCH_INTO, $unUser);
+		$req->setFetchMode(\PDO::FETCH_INTO, $unUser);
 		$req->execute(array( $AdresseMail ));
-		$req->fetch(PDO::FETCH_INTO);
+		$req->fetch(\PDO::FETCH_INTO);
 		$conn = null;
 		return $unUser;
 	}
@@ -20,7 +20,7 @@ class MCompte{
 
 		$conn = Main::BDDConnexionPDO();
 		$req=$conn->prepare("UPDATE Utilisateur SET AdresseMail=? WHERE NumUser=? ");
-		$req->execute(array( $Mail, $AdresseMail ));
+		$req->execute(array( $Mail, $NumUser ));
 		$conn = null;
 		return true;
 
