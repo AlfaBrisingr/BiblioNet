@@ -1,7 +1,7 @@
 <?php
-use BiblioNet\Modele\Mlivre;
-use BiblioNet\Modele\Mgenre;
-use BiblioNet\Modele\Medition;
+use BiblioNet\Modele\MLivre;
+use BiblioNet\Modele\MGenre;
+use BiblioNet\Modele\MEdition;
 use BiblioNet\Modele\MAuteur;
 
 if (isset($_REQUEST['action']))
@@ -41,7 +41,7 @@ switch($action){
 			else
 			     $edition='0';
 
-	$tabEdition=Medition::getLesEdition();
+	$tabEdition=MEdition::getLesEdition();
 
 	$tabLesLivreDuneEdition=MLivre::getlivreEdition($edition);
 	include("Vue/Livre/vue_edition.php");

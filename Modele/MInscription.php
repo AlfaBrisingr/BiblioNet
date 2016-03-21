@@ -9,9 +9,9 @@ class MInscription{
 		$conn = Main::BDDConnexionPDO();
 		$req=$conn->prepare("SELECT * FROM Utilisateur WHERE AdresseMail=?"); 
 		$unUser = new Utilisateur();
-		$req->setFetchMode(PDO::FETCH_INTO, $unUser);
+		$req->setFetchMode(\PDO::FETCH_INTO, $unUser);
 		$req->execute(array($_POST['mail']));
-		$req->fetch(PDO::FETCH_INTO);
+		$req->fetch(\PDO::FETCH_INTO);
 		$conn = null;
 		return true;
 
@@ -27,7 +27,7 @@ class MInscription{
 			$conn = null;
 			return true;
 		}
-		catch (PDOException $ex)
+		catch (\PDOException $ex)
 		{
 			echo "Erreur : (User already exists), merci de contacter un administrateur.";
 		}

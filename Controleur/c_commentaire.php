@@ -1,5 +1,5 @@
 <?php
-use BiblioNet\Modele\Mlivre;
+use BiblioNet\Modele\MLivre;
 use BiblioNet\Modele\MCommentaire;
 
 if (isset($_REQUEST['action']))
@@ -10,7 +10,7 @@ else
 switch($action){
 
 	case 'voirCommentaire' : 
-	$Livre = Mlivre::getUnLivre($_GET['ref']);
+	$Livre = MLivre::getUnLivre($_GET['ref']);
 	$TabCom = MCommentaire::getLesCommentaires($_GET['ref']);
 	$_SESSION['NoLivre'] = $Livre->getNumLivre();
 	include ('Vue/Commentaire/vue_commantaire.php');
