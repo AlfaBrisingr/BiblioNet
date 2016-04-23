@@ -1,4 +1,5 @@
 <?php
+require_once ROOT.'Views/vue_Alert.php';
 if(isset($_SESSION['Panier'])){
 
 	$total = 0;
@@ -22,13 +23,13 @@ if(isset($_SESSION['Panier'])){
 						foreach ($coll as $key => $value) { ?>
 
 							<TR>
-								<TD headers="NumLivre"><?php echo $value -> getRef(); ?></TD>
-								<TD><?php echo $value -> getLib(); ?></TD>
-								<TD><?php echo $value -> getPrix()." euros"; ?></TD>
-								<TD headers="quantite"><a href='index.php?uc=Panier&action=diminuerProduit&ref=<?= $value->getRef(); ?>'><img src='img/Panier/EnleverMoins.png'/></a>  <?php echo $value -> getQte(); ?>  <a href='index.php?uc=Panier&action=augmenterProduit&ref=<?= $value->getRef(); ?>'><img src='img/Panier/AjouterPlus.png'/></a></TD>
-								<TD><?php echo $value -> getPrix()*$value ->getQte()." euros"; ?></TD>
-								<TD><a href='index.php?uc=Panier&action=supprimerProduit&ref=<?= $value->getRef(); ?>'><img src='img/Divers/poubelle.png'/></a><br/></TD>
-								<?php $total = $total + $value -> getPrix()*$value ->getQte(); ?>
+								<TD headers="NumLivre"><?php echo $value->getNumLivre(); ?></TD>
+								<TD><?php echo $value->getNom(); ?></TD>
+								<TD><?php echo $value->getTarif()." euros"; ?></TD>
+								<TD headers="quantite"><a href='index.php?uc=Panier&action=diminuerProduit&ref=<?= $value->getNumLivre(); ?>'><img src='Ressources/img/Panier/EnleverMoins.png'/></a>  <?php echo $value->getQte(); ?>  <a href='index.php?uc=Panier&action=augmenterProduit&ref=<?= $value->getNumLivre(); ?>'><img src='img/Panier/AjouterPlus.png'/></a></TD>
+								<TD><?php echo $value->getTarif()*$value->getQte()." euros"; ?></TD>
+								<TD><a href='index.php?uc=Panier&action=supprimerProduit&ref=<?= $value->getNumLivre(); ?>'><img src='img/Divers/poubelle.png'/></a><br/></TD>
+								<?php $total = $total + $value->getTarif()*$value->getQte(); $_SESSION['Total'] = $total; ?>
 							</TR>
 							<?php
 						} ?>
