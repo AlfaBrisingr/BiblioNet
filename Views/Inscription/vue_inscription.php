@@ -1,6 +1,10 @@
+<?php
+
+require_once ROOT.'Views/vue_Alert.php';
+
+?>
 <div class="row">
   <div align="center" > Formulaire d'inscription ! </div></font>
-  <?php if (isset($_SESSION['error'])) { echo $_SESSION['error']; } ?>
 </div>
 
 <form method="post" action="?uc=Inscription&action=Inscription" >

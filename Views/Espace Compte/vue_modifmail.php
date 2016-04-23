@@ -1,3 +1,8 @@
+<?php
+
+require_once ROOT.'Views/vue_Alert.php';
+
+?>
 <form action="?uc=MonCompte&action=ValiderModifMail">
 	<label>Ancienne Adresse Mail : </label>
 	<input type="email" value="<?php echo $_SESSION['mail']; ?>" name="MailUser" disabled></br>

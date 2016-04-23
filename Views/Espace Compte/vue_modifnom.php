@@ -1,3 +1,8 @@
+<?php
+
+require_once ROOT.'Views/vue_Alert.php';
+
+?>
 <form action="?uc=MonCompte&action=ValiderModifNom" method="post">
 	<div class="row">
 		<div class="col-sm-3 col-xs-3">

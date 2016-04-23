@@ -1,4 +1,7 @@
-<?php use BiblioNet\Modele\Main; ?>
+<?php use BiblioNet\Models\Main;
+
+require_once ROOT.'Views/vue_Alert.php';
+?>
 
 <?php
 if(Main::SessionOuverte() == false)

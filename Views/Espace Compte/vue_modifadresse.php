@@ -1,3 +1,8 @@
+<?php
+
+require_once ROOT.'Views/vue_Alert.php';
+
+?>
 <form action="?uc=MonCompte&action=ValiderModifAdresse" method="post">
 	<div class="row">
 		<div class="col-sm-12 col-xs-12">

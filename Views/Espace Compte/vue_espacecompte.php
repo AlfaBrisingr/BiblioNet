@@ -1,3 +1,9 @@
+<?php
+
+require_once ROOT.'Views/vue_Alert.php';
+
+?>
+
 <div class="row">
     <div class="col-xs-12 col-sm-12">
         <p>Voici vos informations :</p>
@@ -12,6 +18,7 @@
 </br>
 <div class="row">
     <div class="col-sm-12">
+        <a href="?uc=MonCompte&action=VoirModifEspaceCompte" class="btn btn-primary"> Modification du Compte </a>
         <a href="?uc=MonCompte&action=modifPrenom" class="btn btn-primary"> Changer son Prénom </a>
         <a href="?uc=MonCompte&action=modifNom" class="btn btn-primary"> Changer son Nom </a>
         <a href="?uc=MonCompte&action=modifAdresse" class="btn btn-primary"> Changer son Adresse Postal </a>
