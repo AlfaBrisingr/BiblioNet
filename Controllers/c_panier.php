@@ -90,7 +90,7 @@ switch ($action)
           MPanier::AjouterCommandeProduit($quantite);
           unset($_SESSION['Panier']);
           Main::setFlashMessage('Votre commande a été pris en compte.','valid');
-          header('Location:?uc=accueil');
+          header('Location:?uc=Accueil');
         }
       }else {
         require_once ROOT.'Views/Panier/vue_commande.php';

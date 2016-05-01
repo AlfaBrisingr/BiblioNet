@@ -21,7 +21,7 @@ switch($action) {
             require_once ROOT.'Views/Accueil/vue_accueil.php';
         } catch (Exception $e) {
             Main::setFlashMessage($e->getMessage(), 'error');
-            header('Location:?uc=accueil');
+            header('Location:?uc=Accueil');
         }
         break;
 
