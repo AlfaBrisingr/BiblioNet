@@ -8,27 +8,24 @@
 require_once ROOT.'Views/vue_Alert.php';
 
 ?>
+<h4 class="text-center">Formulaire de Modification</h4>
 <form action="?uc=MonCompte&action=ModifEspaceCompte" method="post">
 	<div class="row">
-		<div class="col-sm-12 col-xs-12">
-			<div class="col-sm-3 col-xs-3">
-				<form class="form-inline">
-					<div class="form-group">
-						<label>Adresse Postal : </label>
-						<input class="form-control" type="text" name="adresse" placeholder="<?php echo $_SESSION['Adresse']; ?>">
-						<input class="form-control" type="number" maxlength="5" minlength="5" min="01000" max="99999" name="cp" placeholder="<?php echo $_SESSION['CodePostal']; ?>">
-						<input class="form-control" type="text" name="ville" placeholder="<?php echo $_SESSION['Ville']; ?>"><br/>
-					</div>
-				</form>
-			</div>
-			<div class="col-sm-3 col-xs-3">
-				<label>Nom : </label>
-				<input class="form-control" type="text" name="nom" placeholder="<?php echo $_SESSION['Nom']; ?>"><br/>
-			</div>
-			<div class="col-sm-3 col-xs-3">
-				<label>Prénom : </label>
-				<input class="form-control" type="text" name="prenom" placeholder="<?php echo $_SESSION['Prenom']; ?>"><br/>
-			</div>
+		<div class="col-sm-3 col-xs-3">
+				<div class="form-group">
+					<label>Adresse Postal : </label>
+					<input class="form-control" type="text" name="adresse" placeholder="<?php echo $_SESSION['Adresse']; ?>">
+					<input class="form-control" type="number" maxlength="5" minlength="5" min="01000" max="99999" name="cp" placeholder="<?php echo $_SESSION['CodePostal']; ?>">
+					<input class="form-control" type="text" name="ville" placeholder="<?php echo $_SESSION['Ville']; ?>"><br/>
+				</div>
+		</div>
+		<div class="col-sm-3 col-xs-3">
+			<label>Nom : </label>
+			<input class="form-control" type="text" name="nom" placeholder="<?php echo $_SESSION['Nom']; ?>"><br/>
+		</div>
+		<div class="col-sm-3 col-xs-3">
+			<label>Prénom : </label>
+			<input class="form-control" type="text" name="prenom" placeholder="<?php echo $_SESSION['Prenom']; ?>"><br/>
 		</div>
 	</div>
 	<div class="row">

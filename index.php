@@ -23,13 +23,12 @@ session_start(); ?>
 <head>
     <title>BiblioNet</title>
     <meta http-equiv="Content-Type" content="text/html"; charset="UTF-8" />
-    <link rel="stylesheet" href="Ressources/css/bootstrap.css" media="screen">
+    <link rel="stylesheet" href="https://bootswatch.com/lumen/bootstrap.min.css">
     <link rel="stylesheet" href="Ressources/css/usebootstrap.css">
     <link type='text/css' rel='stylesheet' href='Ressources/css/main.css'/>
     <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
     <script src="Ressources/js/bootstrap.min.js"></script>
     <script src="Ressources/js/usebootstrap.js"></script>
-    <!--<link href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css' rel='stylesheet'> -->
 </head>
 
 
@@ -83,7 +82,7 @@ session_start(); ?>
         {
             switch ($_GET['uc'])
             {
-                case 'Accueil' : include("Views/Accueil/vue_accueil.php"); break;
+                case 'Accueil' : include("Controllers/c_accueil.php"); break;
                 case 'Panier' : include("Controllers/c_panier.php"); break;
                 case 'MonCompte' : include("Controllers/c_espacecompte.php"); break;
                 case 'Connexion' : include("Controllers/c_connexion.php"); break;
@@ -96,7 +95,7 @@ session_start(); ?>
         }
         else
         {
-            header('Location:?uc=accueil');
+            header('Location:?uc=Accueil');
         }
 
         ?>

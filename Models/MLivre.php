@@ -198,4 +198,40 @@ class MLivre{
 
 		return $LesLivres;
 	}
+
+	static public function getLivreRand(){
+		$LesLivres = new Collection();
+		try{
+			$conn = Main::BDDConnexionPDO();
+			$req = $conn->query("SELECT *
+			  FROM Livre
+			  INNER JOIN Genre ON Livre.NoGenre = Genre.NumGenre
+			  INNER JOIN Auteur ON Livre.NumAuteur = Auteur.NumAuteur
+			  INNER JOIN Edition ON Livre.NoEdition = Edition.NumEdition
+			  ORDER BY Rand() DESC LIMIT 0,4");
+			$req = $req->fetchAll();
+			foreach ($req as $unLivre) {
+				$genre = new Genre($unLivre['NoGenre'], $unLivre['NomGenre']);
+				$auteur = new Auteur($unLivre['NumAuteur'], $unLivre['NomAuteur']);
+				$edition = new Edition($unLivre['NoEdition'], $unLivre['NomEdition']);
+				$livre = new Livre(
+					$genre,
+					$unLivre['NumLivre'],
+					$unLivre['CodeISBN'],
+					$unLivre['Nom'],
+					$auteur,
+					$unLivre['QuantiteStock'],
+					$unLivre['DateSortie'],
+					$unLivre['Tarif'],
+					$unLivre['Resume'],
+					$unLivre['Langue'],
+					$unLivre['Couverture'],
+					$edition);
+				$LesLivres->ajouter($livre);
+			}
+		}catch (\Exception $e){
+			Main::setFlashMessage($e->getMessage(),'error');
+		}
+		return $LesLivres;
+	}
 }

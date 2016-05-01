@@ -35,10 +35,10 @@ switch($action){
 					$unUser = new Utilisateur(1,$_POST['nom'], $_POST['prenom'], $_POST['mdp'], $_POST['mail'], $_POST['adresse'], $_POST['code'], $_POST['ville']);
 					MInscription::setAjouterUser($unUser);
 					Main::setFlashMessage('Inscription réussie, vous pouvez désormais vous connecter.','valid');
-					header("Location:?uc=index");
+					header("Location:?uc=Accueil");
 				}
 			} else {
-				header("Location:?uc=index");
+				header("Location:?uc=Accueil");
 			}
 		}catch (Exception $e){
 			Main::setFlashMessage($e->getMessage(), 'error');
@@ -46,5 +46,5 @@ switch($action){
 		}
 		break;
 
-	default : header("Location:?uc=index");
+	default : header("Location:?uc=Accueil");
 }

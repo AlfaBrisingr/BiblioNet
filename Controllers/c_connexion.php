@@ -27,20 +27,21 @@ switch($action){
 					$_SESSION['CodePostal'] = $utilisateur->getCodePostal();
 					$_SESSION['Ville'] = $utilisateur->getVille();
 					Main::setFlashMessage('Connexion avec succès','valid');
-					header("Location:?uc=index");
+					header("Location:?uc=Accueil");
 				} else {
 					Main::setFlashMessage('E-mail ou mot de passe incorrecte','error');
 					header("Location:?uc=Connexion");
 				}
 			} else {
 				Main::setFlashMessage("Impossible d'accéder à cette page.",'error');
-				header("Location:?uc=index");
+				header("Location:?uc=Accueil");
 			}
 		}catch (Exception $e){
 			Main::setFlashMessage($e->getMessage(), 'error');
 			header('Location:?uc=connexion');
 		}
-		;break;
-	default : header("Location:?uc=index");
+		break;
+
+	default : header("Location:?uc=Accueil");
 
 }

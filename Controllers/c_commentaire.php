@@ -24,7 +24,7 @@ switch($action){
 			}
 		}catch (Exception $e){
 			Main::setFlashMessage($e->getMessage(), 'error');
-			header('Location:?uc=accueil');
+			header('Location:?uc=Accueil');
 		}
 	break;
 }

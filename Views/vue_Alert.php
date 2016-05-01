@@ -13,7 +13,7 @@
         if (array_key_exists('valid', $_SESSION)) {
             ?>
             <div class="alert alert-success alert-dismissible" role="alert">
-                <?php echo $_SESSION['valid'] ?>
+                <span class="glyphicon glyphicon-ok"></span><?php echo ' '.$_SESSION['valid'] ?>
                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -23,7 +23,7 @@
         if (array_key_exists('error', $_SESSION)) {
             ?>
             <div class="alert alert-dismissible alert-danger" role="alert">
-                <span class="sr-only">Error:</span>
+                <span class="glyphicon glyphicon-remove-circle"></span>
                 <?php echo $_SESSION['error'] ?>
                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                     <span aria-hidden="true">&times;</span>

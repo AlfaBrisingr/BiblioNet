@@ -325,6 +325,13 @@ class Livre {
 		$this->qte = $qte;
 	}
 
+	/**
+	 * @return int
+	 */
+	public function getTaille($nom){
+		return strlen($nom);
+	}
+
 
 
 }

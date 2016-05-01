@@ -35,4 +35,15 @@ class Date
 		}
 		return $day.' '.$lesMois[$mois - 1].' '.$year.' à '.$hour.':'.$min;
 	}
+
+	public static function formaterDateFr($dateCom){
+		$lesMois = ['Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Août', 'Septembre', 'Octobre', 'Décembre'];
+		$Year = substr($dateCom, 0, -6);
+		$Month = substr($dateCom, 5, -3);
+		$Day = substr($dateCom, 8);
+		if (substr($Month, 0, 1) === '0') {
+			$Month = substr($Month, 1, 2);
+		}
+		return $Day.' '.$lesMois[$Month - 1].' '.$Year;
+	}
 }

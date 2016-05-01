@@ -23,14 +23,23 @@ require_once ROOT.'Views/vue_Alert.php';
                         <img class="img-responsive"  src=<?php echo $Livre->getCouverture();?>  /><br/>
                         <h5><?php echo '<strong>'."Code ISBN : ".'</strong>'. $Livre->getCodeISBN();?></h5>
                         <h5><?php echo '<strong>'."Genre : ".'</strong>'.$Livre->getGenre()->getNomGenre();?></h5>
-                        <h5><?php echo '<strong>'."Date de Sortie : ".'</strong>'.Date::formaterDate($Livre->getDateSortie());?></h5>
+                        <h5><?php echo '<strong>'."Date de Sortie : ".'</strong>'.Date::formaterDateFr($Livre->getDateSortie());?></h5>
                         <h5 class="text-justify"><?php echo '<strong>'."Résumé : ".'</strong><br/>'.$Livre->getResume();?></h5>
                     </div>
 
                     <div class="col-xs-6 col-sm-6"><br/><br/><br/><br/><br/>
                         <h5 align="vertical"><?php echo '<strong>'."Prix : ".'</strong>'.$Livre->getTarif().'€';?></h5>
-                        <h5><?php echo '<strong>'."Quantité en Stock : ".'</strong>'.$Livre->getQuantiteStock();?></h5>
+                        <?php
+
+                        if($Livre->getQuantiteStock() == 0){ ?>
+                            <h5 class="text-danger"><?php echo '<strong>'.'Stock Epuisé'.'</strong>' ?></h5>
+                        <?php } else { ?>
+                            <h5><?php echo '<strong>'."Quantité en Stock : ".'</strong>'.$Livre->getQuantiteStock();?></h5>
+                        <?php }
+                        if(Main::SessionOuverte() == true)
+                        { ?>
                         <a class="btn btn-primary" href='?uc=Panier&action=ajouterProduit&ref=<?php echo $Livre->getNumLivre();?>'>Ajouter au Panier</a>
+                        <?php } ?>
                     </div>
                 </div>
             </div>
@@ -45,16 +54,16 @@ require_once ROOT.'Views/vue_Alert.php';
 
                 foreach ($TabCom->getCollection() as $Commentaire)
                 {
-                    ?>
-                    <div class="thumbnail">
-                        <div class="caption">
-                            <h4><?php echo 'Posté par '.$Commentaire->getUser()->getPrenom();?>
+                ?>
+                <div class="thumbnail">
+                    <div class="caption">
+                        <h4><?php echo 'Posté par '.$Commentaire->getUser()->getPrenom();?>
                             <?php echo 'le '.Date::formaterFr($Commentaire->getDateCom());?></h4>
-                            <h5><?php echo 'Contenu : ';?></h5>
-                            <h5><?php echo $Commentaire->getCom();?><h5>
-                        </div>
+                        <h5><?php echo 'Contenu : ';?></h5>
+                        <h5><?php echo $Commentaire->getCom();?><h5>
                     </div>
-                    <?php
+                </div>
+                <?php
                 }
                 ?>
                 <div class="thumbnail">
@@ -62,7 +71,7 @@ require_once ROOT.'Views/vue_Alert.php';
                         <?php
                         if(Main::SessionOuverte() == true)
                         {
-                            ?>
+                        ?>
                             <form method="post" action="?uc=Commentaire&action=ValiderCommentaire">
                                 <h4>Ajouter un Commentaire !</h4>
                                 <label name ="Com">Contenu du Commentaire</label></br>
@@ -71,11 +80,11 @@ require_once ROOT.'Views/vue_Alert.php';
                                 </p>
 
                             </form>
-                            <?php
+                        <?php
                         }else{
-                            ?>
+                        ?>
                             Vous devez être connecté pour avoir accès à l'ajout de commentaire sur un Livre.
-                            <?php
+                        <?php
                         }
                         ?>
                     </div>
