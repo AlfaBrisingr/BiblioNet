@@ -56,7 +56,12 @@ switch ($action)
 
   case 'augmenterProduit' :
     try {
-      $_SESSION['Panier']->augmenterQuantiteProduit($_GET['ref'], 1);
+      $unProduit = MLivre::getUnLivre($_GET['ref']);
+      if (($_SESSION['Panier']->getCollProduit()->getElement($_GET['ref'])->getQte()) > ($unProduit->getQuantiteStock() -1 )) {
+        Main::setFlashMessage('Quantitée en stock insuffisante.', 'error');
+      }else {
+        $_SESSION['Panier']->augmenterQuantiteProduit($_GET['ref'], 1);
+      }
     }catch (Exception $e){
       Main::setFlashMessage($e->getMessage(), 'error');
     }

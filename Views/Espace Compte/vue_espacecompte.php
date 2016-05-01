@@ -19,6 +19,7 @@ require_once ROOT.'Views/vue_Alert.php';
 <div class="row">
     <div class="col-sm-12">
         <a href="?uc=MonCompte&action=VoirModifEspaceCompte" class="btn btn-primary"> Modification du Compte </a>
+        <a href="?uc=MonCompte&action=HistoriqueCommande" class="btn btn-primary"> Historique des Commandes </a>
     </div>
 </div>
 

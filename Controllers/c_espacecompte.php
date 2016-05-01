@@ -1,6 +1,8 @@
 <?php
 use BiblioNet\Models\Main;
 use BiblioNet\Models\MCompte;
+use BiblioNet\Models\MConnexion;
+use BiblioNet\Models\MPanier;
 
 if (isset($_REQUEST['action']))
 	$action = $_REQUEST['action'];
@@ -57,6 +59,24 @@ switch($action){
 			Main::setFlashMessage('Une erreur est survenue lors de la modification de votre compte','error');
 		}
 		break;
+
+	case 'HistoriqueCommande' :
+		try{
+
+			$user = MConnexion::getUnUserbyId($_SESSION['user']);
+			$tabCommandes = MPanier::getLesCommandesbyUser($user);
+			if (isset($_POST['Commande'])) {
+				$uneCommande = MPanier::getUneCommande($_POST['Commande']);
+				$tabLivres = MPanier::getLivresbyCommande($uneCommande);
+			}
+			require_once  ROOT.'Views/Espace Compte/vue_historiquecommande.php';
+
+		}catch (Exception $e) {
+			Main::setFlashMessage('Une erreur est survenue lors de l\'affichage d\'une commande','error');
+		}
+
+		break;
+
 
 
 
